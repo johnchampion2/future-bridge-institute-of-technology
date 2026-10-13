@@ -448,7 +448,7 @@ function studentForm(s) {
   const m = modal(`<div class="mh">${logo()}<div><h3>${CONFIG.INSTITUTION} (${CONFIG.SHORT})</h3><p>STUDENT ADMISSION FORM</p></div></div>
   <form id="sf" novalidate>
   <div class="g3"><label class="f"><span>Student ID</span><input name="StudentID" readonly value="${s ? esc(s.StudentID) : ''}" placeholder="Auto-generated"></label>
-  <label class="f"><span>Academic Year *</span><input name="AcademicYear" placeholder="2026/2027" maxlength="9" inputmode="numeric" oninput="this.value=this.value.replace(/[^0-9\\/]/g,'')"></label></div>
+  <label class="f"><span>Academic Year *</span><input name="AcademicYear" placeholder="2026/2027" maxlength="9" inputmode="text" oninput="this.value=this.value.replace(/[^0-9\\/]/g,'')"></label></div>
   <div class="sec">SECTION A: PERSONAL INFORMATION</div>
   <div class="g2">${inp('1. Full Name *', 'FullName')}
   <div><span class="lbl">2. Gender *</span>${radios('Gender', ['Male', 'Female'])}</div>
@@ -475,7 +475,7 @@ function studentForm(s) {
   <div class="sec">SECTION G: HOW DID YOU HEAR ABOUT FBITI?</div>
   ${checks('HeardAbout', ['Social Media', 'Friend/Relative', 'Radio', 'Flyer/Banner', 'School Visit', 'Website', 'Other'])}
   <div style="max-width:340px">${inp('If Other, specify', 'HeardOther')}</div>
-  <div id="sfMsg"></div><div class="row end"><button type="button" class="btn ghost" data-act="closeModal">Cancel</button><button class="btn" type="submit">${s ? 'Update Student' : 'Save Student'}</button></div></form>`);
+  <div id="sfMsg"></div><div class="row end"><button type="button" class="btn ghost" data-act="closeModal">Cancel</button><button class="btn" type="submit">${s ? 'Update Student' : 'Save Student'}</button></div></form>`, 'student-form');
   const f = $('#sf', m);
   const toggleMed = () => $('#medBox', m).hidden = f.elements.MedicalCondition.value !== 'Yes';
   $$('[name=MedicalCondition]', f).forEach(r => r.onchange = toggleMed);
