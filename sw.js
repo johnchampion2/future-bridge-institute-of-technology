@@ -1,5 +1,5 @@
 /* FBITI SYS – service worker: installable + works offline (app shell cached) */
-const VERSION = 'fbiti-sys-v3';
+const VERSION = 'fbiti-sys-v4';
 const SHELL = ['./', 'index.html', 'css/style.css', 'js/config.js', 'js/app.js', 'manifest.json',
   'assets/icon-192.png', 'assets/icon-512.png', 'assets/favicon.png', 'assets/logo.png',
   'https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js',
