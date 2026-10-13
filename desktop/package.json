@@ -1,0 +1,27 @@
+{
+  "name": "fbiti-sys",
+  "productName": "FBITI SYS",
+  "version": "1.0.0",
+  "description": "FBITI SYS desktop app",
+  "main": "main.js",
+  "author": "FBITI",
+  "scripts": {
+    "copy": "node copy-web.js",
+    "start": "npm run copy && electron .",
+    "build:win": "npm run copy && electron-builder --win nsis",
+    "build:mac": "npm run copy && electron-builder --mac",
+    "build:linux": "npm run copy && electron-builder --linux AppImage"
+  },
+  "devDependencies": {
+    "electron": "^31.0.0",
+    "electron-builder": "^24.13.3"
+  },
+  "build": {
+    "appId": "com.fbiti.sys",
+    "productName": "FBITI SYS",
+    "files": ["main.js", "www/**/*"],
+    "icon": "www/assets/icon-512.png",
+    "win": { "target": "nsis" },
+    "nsis": { "oneClick": false, "allowToChangeInstallationDirectory": true }
+  }
+}
